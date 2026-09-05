@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: '868f6ab9-4e0c-4756-989a-625894345dcf') {
-                        sh 'docker build -t shivashankardev/mongospring:1.9 .'
+                        sh 'docker build -t shivashankardev/mongospring:2.0 .'
                     }
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: '868f6ab9-4e0c-4756-989a-625894345dcf') {
-                        sh 'docker push shivashankardev/mongospring:1.9'
+                        sh 'docker push shivashankardev/mongospring:2.0'
                     }
                 }
             }
@@ -55,7 +55,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: '868f6ab9-4e0c-4756-989a-625894345dcf') {
-                        sh 'docker run -d -p 8085:8080 --name two  shivashankardev/mongospring:1.9'
+                        sh 'docker run -d -p 8088:8080 --name three  shivashankardev/mongospring:2.0'
                         
                     }
                 }
@@ -65,7 +65,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: '868f6ab9-4e0c-4756-989a-625894345dcf') {
-                        sh 'docker run -d -p 8086:8080 --name springfive  shivashankardev/mongospring:1.9'
+                        sh 'docker run -d -p 8087:8080 --name springten  shivashankardev/mongospring:2.0'
                         
                     }
                 }
