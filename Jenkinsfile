@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker build -t shivashankardev/mongospring:2.0 .'
+                        sh 'docker build -t shivashankardev/mongospring:2.1 .'
                     }
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker push shivashankardev/mongospring:2.0'
+                        sh 'docker push shivashankardev/mongospring:2.1'
                     }
                 }
             }
