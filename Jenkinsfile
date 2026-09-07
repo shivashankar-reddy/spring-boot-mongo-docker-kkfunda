@@ -29,6 +29,26 @@ pipeline {
                     """
                 }
             }
-        }     
+        }
+
+        stage('Build & Tag Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'sonar') {
+                        sh 'docker build -t shivashankardev/mongospring:2.0 .'
+                    }
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'sonar') {
+                        sh 'docker push shivashankardev/mongospring:2.0'
+                    }
+                }
+            }
+        }
     }
 }
