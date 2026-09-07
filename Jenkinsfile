@@ -21,7 +21,7 @@ pipeline {
 
         stage('SonarQube') {
             steps {
-                withSonarQubeEnv('sonar') {
+                withSonarQubeEnv('sonara') {
                     sh """
                     mvn sonar:sonar \
                         -Dsonar.projectKey=spring-boot-mongo \
