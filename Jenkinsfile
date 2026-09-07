@@ -50,5 +50,14 @@ pipeline {
                 }
             }
         }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        sh 'docker run -d -p 8081:8080 --name springappone shivashankardev/mongospring:2.1'
+                    }
+                }
+            }
+        }
     }
 }
