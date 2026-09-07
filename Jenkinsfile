@@ -34,7 +34,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'sonar') {
+                    withDockerRegistry(credentialsId: 'docker') {
                         sh 'docker build -t shivashankardev/mongospring:2.0 .'
                     }
                 }
@@ -44,7 +44,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'sonar') {
+                    withDockerRegistry(credentialsId: 'docker') {
                         sh 'docker push shivashankardev/mongospring:2.0'
                     }
                 }
