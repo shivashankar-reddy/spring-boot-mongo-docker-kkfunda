@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker build -t shivashankardev/mongospring:2.2 .'
+                        sh 'docker build -t shivashankardev/mongospring:2.2.1 .'
                     }
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker push shivashankardev/mongospring:2.2'
+                        sh 'docker push shivashankardev/mongospring:2.2.1'
                     }
                 }
             }
@@ -54,7 +54,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker run -d -p 8086:8080 --name springapptwo shivashankardev/mongospring:2.2'
+                        sh 'docker run -d -p 8088:8080 --name springappthree shivashankardev/mongospring:2.2.1'
                     }
                 }
             }
